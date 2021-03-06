@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 in 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="all">
+            <div class="odeven">
+            
+                        <div class="mainbox">
+                            <div class="pt">
+                                <p  id="dis"></p>
+                            </div>
+                            
+                            <input type="number" id="input" placeholder="Odd or Even">
+                            <button  class="btn" type="button" id="submit" >SUBMIT</button>
+                            
+                        </div>
+                        <script>
+                            document.getElementById("submit").addEventListener("click",oe)
+                            const jai=document.getElementById("dis")
+
+
+                            function oe(){
+                                let check=document.getElementById("input")
+                                let x=check.value;
+                                    if(x%2==0){
+                                        result="It's Even Buddy"
+                                    }
+                                    else{
+                                        result="It's Odd Buddy"
+                                    }
+
+                                    
+                                jai.innerHTML=result;   
+                                }
+
+                            
+                        </script>
+            </div>
+                                     <!-- increment -->
+
+
+            <div class="increment">
+                        <div class="mainbox1">
+                            <input type="number" id="display" placeholder="Enter Number">
+                            <div class="bt">
+                                <button  class="btn1" type="button" id="add" >+</button>
+                                <button  class="btn2" id="sub" type="button" >-</button>
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById("add").addEventListener("click",more)
+                            document.getElementById("sub").addEventListener("click",less)
+                            function more(){
+                                let added=document.getElementById("display")
+                                display.value=parseInt(display.value)+1;
+                    
+                                
+                            }
+                            function less(){
+                                let added=document.getElementById("display")
+                                display.value=parseInt(display.value)-1;
+                    
+                                
+                            }
+                    
+                        
+                    </script>
+            </div>
+   </div>
+</body>
+</html>

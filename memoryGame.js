@@ -10,11 +10,11 @@ for (let i=0;i<6;i++){
  }
 }
 
-// function clrHide() {
-//     for (let i=0;i<6;i++){
-//      setTimeout(function(){(box[i].style.backgroundColor='')},3000);
-//   }
-// }
+function clrHide() {
+    for (let i=0;i<6;i++){
+     setTimeout(function(){(box[i].style.backgroundColor='')},3000);
+  }
+}
 
 random()
 clrHide()

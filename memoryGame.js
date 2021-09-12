@@ -40,14 +40,14 @@ rounds[i].addEventListener("click",(e)=>clickBox(e))
 }
   // input.value=output.innerHTML
 
-  function clrMatch(){
-     if(ranClr.item===clickedBoxClr.item){
-        alert('u win')
+//   function clrMatch(){
+//      if(ranClr.item===clickedBoxClr.item){
+//         alert('u win')
 
-     }else{
-        alert('lost')
-     }
-  }
+//      }else{
+//         alert('lost')
+//      }
+//   }
 
   
 random()

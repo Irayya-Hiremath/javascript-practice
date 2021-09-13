@@ -1,10 +1,13 @@
 let  clrArr=['red','green'];
-let guessClr=['red','green'];
+let guessClr=['red','green']; //question
 let box=document.getElementsByClassName('round')
 let ranClr=document.getElementById('ranClr')
-ranClr.innerHTML="Guess The color"+ " "+ guessClr[Math.floor(Math.random()*2)]
+ let randomClrans=ranClr.innerHTML="Guess The color"+ " "+ guessClr[Math.floor(Math.random()*2)]
+// let randomClrans=ranClr.innerHTML=guessClr[Math.floor(Math.random()*2)]
+
 let getColor=[]
 let clickedBoxClr=[]
+let ansClr=[]
 
 function random(){
 for (let i=0;i<9;i++){
@@ -14,7 +17,10 @@ for (let i=0;i<9;i++){
     getColor.push(box[i].style.backgroundColor=clrArr[Math.floor(Math.random()*2)])
     //above push method is used to push the box colors to getColor variable
     console.log(getColor)
+
  }
+ pushClr()
+
 }
 
 function clrHide() {
@@ -38,6 +44,7 @@ for (var i = 0; i < rounds.length; i++){
    console.log(rounds[i])
 rounds[i].addEventListener("click",(e)=>clickBox(e))
 }
+alert(randomClrans)
   // input.value=output.innerHTML
 
 //   function clrMatch(){
@@ -48,12 +55,40 @@ rounds[i].addEventListener("click",(e)=>clickBox(e))
 //         alert('lost')
 //      }
 //   }
-
+function pushClr(){
   
-random()
-clrHide()
-function submit(){
-   alert('hi')
- clrMatch()
+    for (let i=0; i < getColor.length; i++){
+     if(randomClrans === getColor[i] ){
+      ansClr.push(randomClrans)
+    }
+
+  }
+    
+alert(ansClr)
+}
+function guess(){
+
+let col = '';
+if(randomClrans === 'red') {
+  col = 'green'
+}else {
+  col = 'red'
+}
+
+let result = '';
+result = clickedBoxClr.includes(col)
+    
+if(result) {
+  alert('wrong')
+}else {
+  alert('correct')
+}
 
 }
+
+
+
+
+random()
+clrHide()
+

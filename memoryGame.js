@@ -44,7 +44,7 @@ for (var i = 0; i < rounds.length; i++){
    console.log(rounds[i])
 rounds[i].addEventListener("click",(e)=>clickBox(e))
 }
-alert(randomClrans)
+// alert(randomClrans)
   // input.value=output.innerHTML
 
 //   function clrMatch(){
@@ -64,7 +64,7 @@ function pushClr(){
 
   }
     
-alert(ansClr)
+// alert(ansClr)
 }
 function guess(){
 

@@ -1,94 +1,94 @@
-let  clrArr=['red','green'];
-let guessClr=['red','green']; //question
-let box=document.getElementsByClassName('round')
-let ranClr=document.getElementById('ranClr')
- let randomClrans=ranClr.innerHTML="Guess The color"+ " "+ guessClr[Math.floor(Math.random()*2)]
-// let randomClrans=ranClr.innerHTML=guessClr[Math.floor(Math.random()*2)]
+let colorArray = ["red", "green"];
+let guessClr = ["red", "green"]; //question
+let box = document.getElementsByClassName("round");
+let ranClr = document.getElementById("ranClr");
+let randomClrans = (ranClr.innerHTML = "Guess The color" + " " + guessClr[Math.floor(Math.random() * 2)]);
 
-let getColor=[]
-let clickedBoxClr=[]
-let ansClr=[]
+let getColor = [];
+let clickedBoxClr = [];
+let ansClr =[];
 
-function random(){
-for (let i=0;i<9;i++){
-     box[i].style.backgroundColor=clrArr[Math.floor(Math.random()*2)];
-    // console.log('hello')
-    //  console.log(box[i])
-    getColor.push(box[i].style.backgroundColor=clrArr[Math.floor(Math.random()*2)])
-    //above push method is used to push the box colors to getColor variable
-    console.log(getColor)
+// console.log(getColor)
+// console.log(clickedBoxClr)
+// console.log(ansClr)
 
- }
- pushClr()
 
-}
 
-function clrHide() {
-    for (let i=0;i<9;i++){
-     setTimeout(function(){(box[i].style.backgroundColor='')},3000);
+
+
+function random() {
+  for (let i = 0; i < 9; i++) {
+    box[i].style.backgroundColor = colorArray[Math.floor(Math.random() * 2)];
+    getColor.push(box[i].style.backgroundColor)
+    
   }
-}
-
-
-let rounds=document.querySelectorAll('.round')
-console.log(rounds)
-function clickBox(e){
-//   console.log(e.target)
-  let color=getColor[parseInt(e.target.innerHTML)]
-//   console.log(color)
- clickedBoxClr.push(color)
- console.log(clickedBoxClr)
-  e.target.classList.add(`${color}`)
-}
-for (var i = 0; i < rounds.length; i++){ 
-   console.log(rounds[i])
-rounds[i].addEventListener("click",(e)=>clickBox(e))
-}
-// alert(randomClrans)
-  // input.value=output.innerHTML
-
-//   function clrMatch(){
-//      if(ranClr.item===clickedBoxClr.item){
-//         alert('u win')
-
-//      }else{
-//         alert('lost')
-//      }
-//   }
-function pushClr(){
   
-    for (let i=0; i < getColor.length; i++){
-     if(randomClrans === getColor[i] ){
-      ansClr.push(randomClrans)
-    }
-
+}
+console.log(getColor.length)
+function clrHide() {
+  for (let i = 0; i < 9; i++) {
+    setTimeout(function () {
+      box[i].style.backgroundColor = "";
+    }, 3000);
   }
-    
-// alert(ansClr)
-}
-function guess(){
-
-let col = '';
-if(randomClrans === 'red') {
-  col = 'green'
-}else {
-  col = 'red'
 }
 
-let result = '';
-result = clickedBoxClr.includes(col)
-    
-if(result) {
-  alert('wrong')
-}else {
-  alert('correct')
+let rounds = document.querySelectorAll(".round");
+// console.log(rounds);
+function clickBox(e) {
+  let color = getColor[parseInt(e.target.innerHTML)];
+  clickedBoxClr.push(color);
+  e.target.classList.add(`${color}`);
 }
 
+for (var i = 0; i < rounds.length; i++) {
+  rounds[i].addEventListener("click", (e) => clickBox(e));
 }
 
 
 
+// function clrSeprate(getcolor){
+//   return getColor==ansClr
+//   newclr(getcolor.filter(clrSeprate));
+//   console.log(newclr)
+// }
 
-random()
-clrHide()
 
+// console.log(getColor)
+
+// function guess() {
+//   let col = "";
+//   if (randomClrans === "red") {
+//     col = "green";
+//   } else {
+//     col = "red";
+//   }
+
+//   let result = "";
+//   result = clickedBoxClr.includes(col);
+
+//   if (result) {
+//     alert("wrong");
+//   } else {
+//     alert("correct");
+//   }
+// }
+// clrSeprate();
+
+//  let abc=document.querySelector('#abc')
+//  let op=''
+//   abc.addEventListener('click',function(){
+//   op=getColor.filter((a)=>a==='red')
+//   console.log(`filter op is ${op}`)
+// })
+//  console.log(abc)
+
+
+
+
+// console.log(output)
+console.log(getColor)
+
+random();
+clrHide();
+clickBox(e);

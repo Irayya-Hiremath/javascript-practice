@@ -38,7 +38,11 @@ let rounds = document.querySelectorAll(".round");
 function clickBox(e) {
   let color = getColor[parseInt(e.target.innerHTML)];
   clickedBoxClr.push(color);
-  e.target.classList.add(`${color}`);
+  console.log(color)
+  e.target.style.backgroundColor = `${color}`
+
+  // e.target.classList.add(`${color}`);
+
 }
 
 for (var i = 0; i < rounds.length; i++) {

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            /* background: url(https://78.media.tumblr.com/ab5d1b5e315a2eca8f7ceecbac7fd622/tumblr_oz2jfje5Jn1u6t6uao1_1280.jpg) center center no-repeat; */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            margin: 0;
+            overflow: hidden
+        }
+
+        #brand {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #brand img {
+            display: block;
+            width: 80vw;
+            max-width: 700px;
+            height: auto;
+            transition: 0.2s
+        }
+
+        #brand a {
+            display: block;
+            font-family: 'Passion One';
+            font-size: 3em;
+            color: #333;
+            font-weight: 800;
+            text-decoration: none;
+            background: rgba(0, 0, 40, 0);
+            padding: 5px 15px;
+            transition: 0.4s
+        }
+
+        #brand:hover a {
+            color: rgba(200, 80, 50, 1);
+            text-shadow: 2px 5px 0 rgba(0, 0, 0, 0.6)
+        }
+
+        .btn-twtr {
+            color: #ddd;
+            border: 2px solid;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            font-family: sans-serif;
+            font-weight: 600;
+            margin-top: 80vh;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 0px 3px rgba(0, 0, 0, 0.2);
+            opacity: 0.8;
+            position: absolute;
+            bottom: 20px;
+            right: 20px
+        }
+
+        .btn-twtr:hover {
+            color: #fff;
+        }
+
+        .btn-twtr:after {
+            content: "\1F426";
+            padding-left: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="brand"> <img src="memory.png" alt="">
+            <!-- src="https://78.media.tumblr.com/105ac1a1cc31e1a054527ffa02e08bf1/tumblr_oz2iyb56V91u6t6uao1_540.png"> -->
+
+        <a href="memoryGame.html">PRESS START</a>
+    </div>
+
+    <script>
+
+        let start = document.querySelector('#brand');
+        let ex = 10;
+        function swing(element) {
+
+            function update(time) {
+
+                const x = Math.sin(time / 1231) * ex;
+                const y = Math.sin(time / 1458) * ex;
+
+                element.style.transform = [
+                    `rotateX(${x}deg)`,
+                    `rotateY(${y}deg)`
+                ].join(' ');
+
+                requestAnimationFrame(update);
+            }
+            update(0); //love your nested functions
+        }
+
+        swing(start);
+
+
+        let start_button = start.querySelector('a');
+        let og_color = start_button.style.color;
+        let inter = 0;
+
+        start.addEventListener('mouseover', (e) => {
+
+            ex = 20;
+            inter = setInterval(() => {
+                start_button.style.color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            }, 1000); //too clever? might change it
+
+        });
+
+
+        start.addEventListener('mouseout', (e) => {
+
+            ex = 10;
+            clearInterval(inter);
+            start_button.style.color = og_color;
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -32,8 +32,12 @@ body{
 
 }
 h1{
+    width: 30%;
+    text-align: center;
     color: white;
-    
+    margin-left: 35%;   
+  border: 2px solid rgb(15, 233, 8);
+
 }
 /* .red{
     background-color: red;
@@ -45,4 +49,7 @@ h1{
 
 button{
     background-color: aqua;
+    width: 30%;
+    margin-left: 35%;
+    height: 100px;
 }

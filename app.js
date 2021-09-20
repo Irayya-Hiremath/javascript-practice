@@ -2,7 +2,8 @@ let colorArray=['red','green'];
 let box = document.getElementsByClassName("round");
 let outputBoxclr=[];
 let guessColor=['red','green'][Math.floor(Math.random()*2)]
-let question=document.getElementById('ranClr').innerHTML ="Guess The color" +' '+ guessColor;
+let question
+// let question=document.getElementById('ranClr').innerHTML ="Guess The color" +' '+ guessColor;
 
 console.log(guessColor)
 
@@ -25,7 +26,9 @@ function boxGetcolor(){
 function removeBcgcolor(){
 
     for (let i=0; i<9; i++){
-    setTimeout(function(){ box[i].style.backgroundColor = '';}, 3000);
+    setTimeout(function(){ box[i].style.backgroundColor = '',
+    question=document.getElementById('ranClr').innerHTML ="Guess The color" +' '+ guessColor;
+;}, 3000);
     }
     
 

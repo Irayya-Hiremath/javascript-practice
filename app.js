@@ -71,7 +71,7 @@ function compare(){
     console.log(clickedBoxClr.length)
     console.log(outputBoxclr.length)
 
-    if(clickedBoxClr.length == y.length){
+    if(clickedBoxClr.length >= y.length){
         if(k) {
             alert('win');
         }else {

@@ -1,103 +1,79 @@
-let colorArray=['red','green'];
+let colorArray = ["red", "green"];
 let box = document.getElementsByClassName("round");
-let outputBoxclr=[];
-let guessColor=['red','green'][Math.floor(Math.random()*2)]
-let question
+let outputBoxclr = [];
+let guessColor = ["red", "green"][Math.floor(Math.random() * 2)];
+let question;
 // let question=document.getElementById('ranClr').innerHTML ="Guess The color" +' '+ guessColor;
 
-console.log(guessColor)
+console.log(guessColor);
 
-function rann(){
+// function startGame()
+// {
 
-    // let guessColor=['red','green'][Math.floor(Math.random()*2)]
-    // let question=document.getElementById('ranClr').innerHTML ="Guess The color" +' '+ guessColor;
-    
-}
+
+
 // random color will be applied for te box
-function boxGetcolor(){
-    for (let i=0; i<9; i++){
-       box[i].style.backgroundColor = colorArray[Math.floor(Math.random()*2)];
-        outputBoxclr.push(box[i].style.backgroundColor)
-        console.log(outputBoxclr)
-    }
+function boxGetcolor() {
+  for (let i = 0; i < 9; i++) {
+    box[i].style.backgroundColor = colorArray[Math.floor(Math.random() * 2)];
+    outputBoxclr.push(box[i].style.backgroundColor);
+    console.log(outputBoxclr);
+  }
 }
 
 //remove the color of box
-function removeBcgcolor(){
+function removeBcgcolor() {
+  for (let i = 0; i < 9; i++) {
+    setTimeout(function () {
+      (box[i].style.backgroundColor = ""),
+        (question = document.getElementById("ranClr").innerHTML =
+          "Guess The color" + " " + guessColor);
+    }, 3000);
+  }
 
-    for (let i=0; i<9; i++){
-    setTimeout(function(){ box[i].style.backgroundColor = '',
-    question=document.getElementById('ranClr').innerHTML ="Guess The color" +' '+ guessColor;
-;}, 3000);
-    }
-    
-
-    rann()
-    matchColor()
-    
-
+  matchColor();
 }
 
 let rounds = document.querySelectorAll(".round");
-let clickedBoxClr =[];
+let clickedBoxClr = [];
 
 function clickedBoxes(e) {
-    let color = outputBoxclr[parseInt(e.target.innerHTML)];
-    e.target.style.backgroundColor = `${color}`
+  let color = outputBoxclr[parseInt(e.target.innerHTML)];
+  e.target.style.backgroundColor = `${color}`;
 
-    clickedBoxClr.push(color);
-    console.log(clickedBoxClr)
-    
-
+  clickedBoxClr.push(color);
+  console.log(clickedBoxClr);
 }
 
-for(let i=0; i<rounds.length; i++) {
-    rounds[i].addEventListener('click',clickedBoxes)
+for (let i = 0; i < rounds.length; i++) {
+  rounds[i].addEventListener("click", clickedBoxes);
 }
 
-
-let y=[]
-function matchColor(){
-    outputBoxclr.map(x=> {
-        if(x===guessColor){
-           y.push(x) 
-        }
-    })
-    console.log(y)
-}
-
-function compare(){
-    let k=clickedBoxClr.every(g=> g===guessColor);
-    console.log(clickedBoxClr.length)
-    console.log(outputBoxclr.length)
-
-    if(clickedBoxClr.length >= y.length){
-        if(k) {
-            alert('win');
-        }else {
-            alert('you lost')
-        }
-    }else {
-        alert('click more box')
+let y = [];
+function matchColor() {
+  outputBoxclr.map((x) => {
+    if (x === guessColor) {
+      y.push(x);
     }
-    
-
+  });
+  console.log(y);
 }
-// function verify(){
-//     for(let i=0; i<y.length; i++) {
-//         y.includes(`${guessColor}`,i)
 
-//     }
-// }
+function compare() {
+  let k = clickedBoxClr.every((g) => g === guessColor);
+  console.log(clickedBoxClr.length);
+  console.log(outputBoxclr.length);
 
+  if (clickedBoxClr.length >= y.length) {
+    if (k) {
+      alert("win");
+    } else {
+      alert("you lost");
+    }
+  } else {
+    alert("click more box");
+  }
+}
 
-
-
-
-
-
-boxGetcolor()
-removeBcgcolor()
-// getBoxclr()
-// matchColor()
-
+boxGetcolor();
+removeBcgcolor();

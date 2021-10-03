@@ -7,8 +7,6 @@ let question;
 
 console.log(guessColor);
 
-// function startGame()
-// {
 
 
 

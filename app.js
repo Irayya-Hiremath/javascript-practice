@@ -67,11 +67,14 @@ function compare() {
       alert("win");
     } else {
       alert("you lost");
+      gameStart()
     }
   } else {
     alert("click more box");
   }
 }
 
+function gameStart(){
 boxGetcolor();
 removeBcgcolor();
+}
